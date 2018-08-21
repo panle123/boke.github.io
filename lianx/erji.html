@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>二级菜单</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		ul{
+			list-style: none;
+			position: relative;
+
+			/*margin: 0px;*/
+		}
+	a{
+		text-decoration: none;
+	}
+	ul li{
+		width: 100px;
+		height: 30px;
+		border: 1px solid #000;
+		
+	}
+	.aa{
+		width: 100px;
+		height: 64px;
+		background: red;
+
+	}
+	ul li .aa{
+		
+		position: absolute;
+		top:0px;
+		left:142px;
+		display: none;
+	}
+	ul li:hover .aa{
+		display: block;
+	}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><a href="#">第一天</a>
+				<div class="aa">hh</div>
+		</li>
+
+		<li><a href="#">第二天</a>
+				<div class="aa">ww
+				</div>
+		</li>
+		
+	</ul>
+</body>
+</html>

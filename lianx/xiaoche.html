@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.sky{
+			width: 100%;
+			height: 300px;
+			animation: sky 10s ease-in-out infinite;
+		}
+		@keyframes sky{
+			0%{ background: skyblue;  }
+			20%{ background: skyblue; opacity: 0.8;}
+			40%{ background: skyblue; opacity: 0.6;}
+			60%{ background: #000; opacity: 0.3;}
+			80%{ background: black; opacity: 0.6;}
+			100%{ background: black; }
+		}
+		.sun{
+			width: 200px;
+			height: 200px;
+			border-radius: 100px;
+			background: red;
+			animation: sun 10s linear infinite;
+		}
+		@keyframes sun{
+			0%{ background: #f0270c;position: absolute;left: 120px;top:140px; width: 200px;
+			height: 200px;opacity: .7 }
+			5%{ background: #e42e15;position: absolute;left: 140px;top:120px; width: 190px;
+			height: 190px;opacity: .8 }
+			10%{ background: #da3822;position: absolute;left: 180px;top:100px; width: 180px;
+			height: 180px; }
+			15%{ background: #c93f2b;position: absolute;left: 240px;top:80px; width: 170px;
+			height: 170px;opacity: .6 }
+			20%{ background: #c93f2b;position: absolute;left: 300px;top:60px; opacity: .4 ;width: 160px;
+			height: 160px;}
+			25%{ background: #c93f2b;position: absolute;left: 370px;top:45px;opacity: .7; width: 150px;
+			height: 150px; }
+			30%{ background: #c93f2b;position: absolute;left: 460px;top:30px; opacity: 1; width: 150px;
+			height: 150px;}
+			35%{ background: #c93f2b;position: absolute;left: 500px;top:45px; width: 150px;
+			height: 150px;}
+			45%{ background: #c93f2b;position: absolute;left: 540px;top:45px; width: 155px;
+			height: 155px;}
+			50%{ background: #c93f2b;position: absolute;left: 580px;top:50px; width: 160px;
+			height: 160px; }
+			55%{ background: #c93f2b;position: absolute;left: 620px;top:53px; width: 165px;
+			height: 165px; opacity: .9;}
+			60%{ background: #c93f2b;position: absolute;left: 660px;top:55px ;width: 170px;
+			height: 170px; opacity: .8;}
+			65%{ background: #c93f2b;position: absolute;left: 700px;top:58px; width: 173px;
+			height: 173px; opacity: .7;}
+			70%{ background: #fff;position: absolute;left: 740px;top:60px;width: 175px;
+			height: 175px; opacity: .6;}
+			75%{ background: #fff;position: absolute;left: 780px;top:63px; width: 177px;
+			height: 177px;opacity: .5; }
+			80%{ background: #fff;position: absolute;left: 820px;top:65px; width: 180px;
+			height: 180px;opacity: .4; }
+			85%{ background: #fff;position: absolute;left: 860px;top:67px; width: 185px;
+			height: 185px; opacity: .3;}
+			90%{ background: #fff;position: absolute;left: 900px;top:70px; width: 190px;
+			height: 190px;opacity: .2 }
+			95%{ background: #fff;position: absolute;left: 940px;top:73px; opacity: .1 ;width: 195px;
+			height: 195px;}
+			100%{ background: #fff;position: absolute;left: 980px;top:75px;opacity: 0; width: 200px;
+			height: 200px; }
+			
+		}
+		.river{
+			width: 100%;
+			height: 300px;
+			 background: -webkit-linear-gradient(#8080c0, #6fb7b7); 
+			animation: river 10s linear infinite;
+		}
+		@keyframes river{
+			
+		}
+		/*	Animations
+------------------------------------------ */
+img{
+	width: 100px;
+	height: 100px;
+/*margin-left: 40%;*/
+}
+.mike{
+	margin-top: 15%;
+	margin-left: 40%;
+	animation: btt 60s linear infinite;
+}
+@keyframes btt{
+	0%{position: absolute;left: 0px;top:50px;}
+	100%{position: absolute;left: 1280px;top:50px;}
+}
+.img_1{
+	animation: bt 10s linear infinite;
+
+}
+@keyframes bt{
+	0%{position: absolute;left: 0px;top:50px;}
+	100%{position: absolute;left: 1280px;top:50px;}
+}
+body {
+	-webkit-animation: bg-move 8s ease-out forwards;
+}
+.boat {
+	-webkit-animation: rock-boat 3s ease-in-out infinite;
+}
+.boat::after {
+	-webkit-animation: steam 4s 2s infinite;
+}
+.mike {
+	-webkit-animation: mike-move 6s 6s ease-out forwards,
+	                   mike-float 3.2s infinite;
+}
+
+
+/*	Keyframes - WebKit only
+------------------------------------------ */
+
+@-webkit-keyframes rock-boat {
+	50%  { -webkit-transform: rotate(-5deg) translateY(-10px); }
+}
+
+@-webkit-keyframes steam {
+	40%,
+	60%  { opacity: .8; }
+	100% { -webkit-transform: translate(-15%, -35%) rotateZ(20deg); }
+}
+
+@-webkit-keyframes bg-move {
+	0%   { background-position:  100% -560px; }
+	100% { background-position: -350% -460px; }
+}
+
+@-webkit-keyframes mike-move {
+	100% { left: 12%; }
+}
+
+@-webkit-keyframes mike-float {
+	50% { -webkit-transform: rotateZ(5deg) translateY(-5px); }
+}
+	</style>
+</head>
+<body>
+	<div class="sky">
+		<div class="sun"></div>
+	</div>
+	<div class="river">
+		<div class="boat">
+		<img class="img_1" src="https://treehouse-code-samples.s3.amazonaws.com/CSS-DD/codepen/stage-12/boat.png" alt="tugboat">
+	</div>
+	<img class="mike" src="https://treehouse-code-samples.s3.amazonaws.com/CSS-DD/codepen/stage-12/mike.png">
+	</div>
+	<div></div>
+	<div></div>
+</body>
+</html>

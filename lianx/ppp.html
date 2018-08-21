@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>划入</title>
+	<style type="text/css">
+		#content{
+			width: 400px;
+			height: 400px;
+			position: absolute;
+			background: red;
+			margin: auto;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			overflow: hidden;
+			
+		}
+		#content img{
+			width: 400px;
+			height: 400px;
+			position: absolute;
+			top: 400px;
+			left: 0;
+		
+		}
+		@keyframes move{
+			to{top: 0;
+			left: 0;}
+		}
+
+		@keyframes move1{
+			from{top: 0;
+			left: 0;}
+			to{
+				top: -400px;
+				left: 0;
+			}
+		}
+		@keyframes move2{
+			from{top: 0;
+			left: 0;}
+			to{
+				top: 0;
+				left: 400px;
+			}
+		}
+
+		@keyframes move3{
+			from{top: 0;
+			left: 0;}
+			to{
+				top: 400px;
+				left: 0px;
+			}
+		}
+
+		@keyframes move4{
+			from{top: 0;
+			left: 0;}
+			to{
+				top: 0;
+				left: -400px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="content">
+		<img id="img" src="boat.png">
+	</div>
+</body>
+<script type="text/javascript">
+
+
+// 宝物
+	var $ = function(_id){
+		return document.getElementById(_id);
+	}
+	var content = $("content");
+
+
+
+	var img = $("img");
+
+	// 移入事件
+	content.onmouseenter = function(e){
+		var re = window.event || e;
+		var width = content.offsetWidth;
+		var height = content.offsetHeight;
+		//获取x和y的坐标
+		var x = (re.pageX - content.offsetLeft - (width / 2)) * (width > height ? (height / width) : 1);
+		var y = (re.pageY - content.offsetTop - (height / 2)) * (height > width ? (width / height) : 1);
+		var direction = Math.round((((Math.atan2(y,x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;//0 1 2 3对应着上右下左
+		
+	switch(direction){
+		case 0:
+		img.style.cssText = 'top:-400px;left:0;'
+		break;
+
+		case 1:
+
+		img.style.cssText = 'top:0;left:400px;'
+		break;
+		case 2:
+
+		img.style.cssText = 'top:400px;left:0;'
+		break;
+		case 3:
+
+		img.style.cssText = 'top:0;left:-400px;'
+		break;
+	}
+img.style.animation = 'move 1s forwards';
+}
+
+
+// 封装
+
+
+// 移入事件
+// 	var enter = function(e ,chang, kuan){
+// 		var re = window.event || e;
+// 		var width = content.offsetWidth;
+// 		var height = content.offsetHeight;
+// 		//获取x和y的坐标
+// 		var x = (re.pageX - content.offsetLeft - (width / 2)) * (width > height ? (height / width) : 1);
+// 		var y = (re.pageY - content.offsetTop - (height / 2)) * (height > width ? (width / height) : 1);
+// 		var direction = Math.round((((Math.atan2(y,x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;//0 1 2 3对应着上右下左
+		
+// 	switch(direction){
+// 		case 0:
+// 		// img.style.cssText = 'top:'-'+kuan+'px';left:0;'
+// 		img.style.top = '-' + kuan + 'px';
+// 		img.style.left = '0';
+// 		break;
+
+// 		case 1:
+
+// 		img.style.cssText = 'top:0;left:chang+'px';'
+
+// 		img.style.left =chang + 'px';
+// 		img.style.top = '0';
+// 		break;
+// 		case 2:
+
+// 		// img.style.cssText = 'top:kuan+'px';left:0;'
+
+// 		img.style.top =kuan + 'px';
+// 		img.style.left = '0';
+// 		break;
+// 		case 3:
+
+// 		// img.style.cssText = 'top:0;left:'-'+chang+'px';'
+
+// 		img.style.left ='-' + chang + 'px';
+// 		img.style.top = '0';
+// 		break;
+// 	}
+
+
+// img.style.animation = 'move 1s forwards';
+// }
+
+// content.onmouseenter =  enter(e,400,400)
+
+
+
+// 移出事件
+content.onmouseleave = function(e){
+		var re = window.event || e;
+		var width = content.offsetWidth;
+		var height = content.offsetHeight;
+		//获取x和y的坐标
+		var x = (re.pageX - content.offsetLeft - (width / 2)) * (width > height ? (height / width) : 1);
+		var y = (re.pageY - content.offsetTop - (height / 2)) * (height > width ? (width / height) : 1);
+		var direction = Math.round((((Math.atan2(y,x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;//0 1 2 3对应着上右下左
+		
+	switch(direction){
+		case 0:
+		img.style.animation = 'move1 1s forwards'
+		break;
+
+		case 1:
+
+		img.style.animation = 'move2 1s forwards'
+		break;
+		case 2:
+
+		img.style.animation = 'move3 1s forwards'
+		break;
+
+		case 3:
+
+		img.style.animation = 'move4 1s forwards'
+		break;
+	}
+
+}
+</script>
+</html>

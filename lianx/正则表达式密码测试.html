@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	#id{
+
+	}
+	#z{
+		display: inline-block;
+		width:50px;
+		height: 10px;
+	}
+	</style>
+</head>
+<body>
+<div>
+	<p>账号<input  id="zh" type="text" name="" autofocus="" value=""></p>
+	<span id="z"></span><span id="z1"></span>
+	<p>密码输入<input  id="mm" type="password" name=""></p>
+	<p>再次输入<input  id="mmm" type="password" name=""></p>
+	<p><button id="btn">提交</button></p>
+</div>
+</body>
+<script type="text/javascript">
+	var $ = function(_id){
+		return document.getElementById(_id);
+	}
+	var zh = $('zh');
+	var mm = $('mm');
+	var mmm = $('mmm');
+	var btn = $('btn');
+	var z = $('z');
+
+btn.onclick = function(){
+	if (zh.value.length<6) {
+		z.innerHTML = '弱';
+		z1.innerHTML = '弱';
+	}
+	if(zh.value.length<6||zh.value.length>12){
+		
+	}
+}
+var num = /[0-9]/;
+var letter = /[a-z,A-Z]/;
+var _w = /\w/;
+alert(num.test(231));
+alert(letter.test("sdf"));
+alert(_w.test($));
+
+</script>
+
+</html>
